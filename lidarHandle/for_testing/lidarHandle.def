@@ -1,0 +1,8 @@
+LIBRARY lidarHandle
+EXPORTS
+lidarHandleInitialize
+lidarHandleInitializeWithHandlers
+lidarHandleTerminate
+lidarHandlePrintStackTrace
+mlxLidarHandle
+
