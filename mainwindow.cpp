@@ -13,6 +13,7 @@ double dataZtjs[13];
 QVector<QVector<double>> dataDensitys(13, QVector<double>(9));
 
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -35,6 +36,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     setProgressBar();//调用函数，实现图表绘制
 
+    processor = nullptr;
     //连接定时器到更新数据函数
     connect(timer,&QTimer::timeout,this,&MainWindow::processData);
 
@@ -51,7 +53,9 @@ MainWindow::~MainWindow()
 //主要功能是调用数据处理函数，对数据进行处理并打包到数组中。
 void MainWindow::processData()
 {
-    matlabThread* processor = new matlabThread(this);
+    if (processor == nullptr) {
+        processor = new matlabThread(this);
+    }
     connect(processor, &matlabThread::dataZtjReady, this, &MainWindow::onDataZtjReady);
     connect(processor, &matlabThread::dataDensityReady, this, &MainWindow::onDataDensityReady);
 
@@ -164,6 +168,7 @@ void MainWindow::on_pushButton_stopTimer_clicked()
     //    mclTerminateApplication();
     qDebug() << "停止计时器";
     timer->stop();
+    delete processor;
 }
 
 //启动按钮，启动计时器（表现：刷新ui界面）
@@ -172,6 +177,7 @@ void MainWindow::on_pushButton_startTimer_clicked()
 {
     qDebug() << "启动：执行一次更新函数，启动计时器";
     //并进行一次数据处理显示（是否需要）
+
     processData();
     //开始计时器，间隔为5s
     timer->start(10000);

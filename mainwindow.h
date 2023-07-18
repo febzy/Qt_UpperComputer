@@ -19,6 +19,7 @@ QT_END_NAMESPACE
 
 //添加子界面头文件
 #include "serialport.h"
+#include "matlabthread.h"
 
 
 
@@ -49,10 +50,13 @@ private slots:
 
     void on_pushButton_startTimer_clicked();
 
+
 private:
     Ui::MainWindow *ui;
     QTimer *timer;
     bool isPageCreated = false;
+
+    matlabThread* processor;
 
     //R为右侧进度条组
     QList<QProgressBar*> progressBarList_R;
