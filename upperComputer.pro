@@ -3,6 +3,7 @@ QT       += core gui
 QT       += core gui serialport
 QT       += serialport
 QT       += charts
+QT       += core gui network
 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -17,7 +18,8 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     matlabthread.cpp \
-    serialport.cpp
+    serialport.cpp \
+    tcpsocket.cpp
 
 HEADERS += \
     lidarHandle.h \
@@ -26,11 +28,13 @@ HEADERS += \
     matlabthread.h \
     mclcppclass.h \
     serialport.h \
+    tcpsocket.h \
     test.h
 
 FORMS += \
     mainwindow.ui \
-    serialport.ui
+    serialport.ui \
+    tcpsocket.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

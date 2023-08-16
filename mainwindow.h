@@ -20,6 +20,8 @@ QT_END_NAMESPACE
 //添加子界面头文件
 #include "serialport.h"
 #include "matlabthread.h"
+#include "udpsocket.h"
+#include "tcpsocket.h"
 
 
 
@@ -50,6 +52,9 @@ private slots:
 
     void on_pushButton_startTimer_clicked();
 
+    void on_pushButton_UDP_clicked();
+
+    void on_pushButton_TCP_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -57,6 +62,12 @@ private:
     bool isPageCreated = false;
 
     matlabThread* processor;
+
+    //UDP的窗口
+    UdpSocket *udpSocketWindow;
+
+    //TCP的窗口
+    tcpSocket *tcpSocketWindow;
 
     //R为右侧进度条组
     QList<QProgressBar*> progressBarList_R;

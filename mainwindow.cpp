@@ -109,12 +109,7 @@ void MainWindow::onDataDensityReady(const QVector<QVector<double>>& dataDensitys
 //因为传送过来的数据是竖着存储的，所以是每9个数据一换行，在这边要将矩阵转换一下，从9x13变成13x9，方便后面使用
 
 
-void MainWindow::on_pushButton_serialPort_clicked()
-{
-    serialPort *sp = new serialPort(this);
-    sp->setWindowModality(Qt::ApplicationModal);
-    sp->show();
-}
+
 
 void MainWindow:: setProgressBar(){//进度条控件设置
     //向List中写入数据
@@ -182,5 +177,29 @@ void MainWindow::on_pushButton_startTimer_clicked()
     //开始计时器，间隔为5s
     timer->start(10000);
 
+}
+
+void MainWindow::on_pushButton_serialPort_clicked()
+{
+    serialPort *sp = new serialPort(this);
+    sp->setWindowModality(Qt::ApplicationModal);
+    sp->show();
+}
+
+void MainWindow::on_pushButton_UDP_clicked()
+{
+    udpSocketWindow = new UdpSocket();
+    udpSocketWindow->setWindowModality(Qt::ApplicationModal);
+    udpSocketWindow->show();
+}
+
+
+
+
+void MainWindow::on_pushButton_TCP_clicked()
+{
+    tcpSocketWindow = new tcpSocket();
+    tcpSocketWindow->setWindowModality(Qt::ApplicationModal);
+    tcpSocketWindow->show();
 }
 

@@ -17,7 +17,7 @@
    <widget class="QPushButton" name="pushButton_serialPort">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>40</x>
       <y>490</y>
       <width>91</width>
       <height>31</height>
@@ -915,6 +915,32 @@
     </property>
     <property name="invertedAppearance">
      <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_UDP">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>490</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>UDP通讯</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_TCP">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>490</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TCP通讯</string>
     </property>
    </widget>
   </widget>
